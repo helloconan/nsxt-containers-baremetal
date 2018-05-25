@@ -56,7 +56,7 @@
         password: "{{ hostvars.nsxmanager.password }}"
         headers:
           Content-Type: "application/json"
-        body: "{ \"logical_switch_id\": \"{{ hostvars.nsxmanager.parent_vifs_ls }}\", \"attachment\": {\"attachment_type\": \"VIF\",\"id\": \"{{ ansible_hostname }}-parent-vif-{{ mac.stdout }}\"}, \"admin_state\": \"UP\" }"
+        body: "{ \"logical_switch_id\": \"{{ hostvars.nsxmanager.parent_vifs_ls }}\", \"attachment\": {\"attachment_type\": \"VIF\",\"context\": {\"vif_type\": \"PARENT\", \"resource_type\": \"VifAttachmentContext\"},\"id\": \"{{ ansible_hostname }}-parent-vif-{{ mac.stdout }}\"}, \"admin_state\": \"UP\" }"
         force_basic_auth: yes
         validate_certs: no
         status_code: 201
